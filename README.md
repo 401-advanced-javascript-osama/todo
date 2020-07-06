@@ -1,11 +1,11 @@
 
 # LAB: todo
-an application designed for creating and organizing a “To Do” list in your browser.
+connecting our application to an API so that our list will be saved permanently. This will require a working and deployed API server with a proper “To Do” data model and appropriate REST routes 
 ### Author: Osama Mousa
 
 ### Links and Resources
 
-- [submission PR class-31](https://github.com/401-advanced-javascript-osama/todo/pull/1)
+- [submission PR class-31](https://github.com/401-advanced-javascript-osama/todo/pull/2)
 
 ### deployment links
 
@@ -19,7 +19,7 @@ an application designed for creating and organizing a “To Do” list in your b
 
 #### UML
 
-![basic react app](./uml/todo.png)
+![basic react app](./uml/todo2.jpg)
 
 
 

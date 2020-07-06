@@ -42,7 +42,7 @@ function ToDo(props){
  
     return (
       <>
-      <Navbar bg="primary" variant="dark">
+      <Navbar bg="primary" variant="light">
         <header>
           <h2>
           There are {list.filter(item => !item.complete).length} Items To Complete
