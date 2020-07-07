@@ -5,7 +5,7 @@ connecting our application to an API so that our list will be saved permanently.
 
 ### Links and Resources
 
-- [submission PR class-31](https://github.com/401-advanced-javascript-osama/todo/pull/2)
+- [submission PR class-31](https://github.com/401-advanced-javascript-osama/todo/pull/3)
 
 ### deployment links
 
