@@ -15,7 +15,7 @@ console.log('fff' , pagination);
       <ul className='pagination'>
         {pageNumbers.map(number => (
           <li key={number} className='page-item'>
-            <a onClick={() => pagination.paginate(number)} href='!#' className='page-link'>
+            <a onClick={() => pagination.paginate(number)}  className='page-link'>
               {number}
             </a>
           </li>
@@ -23,12 +23,12 @@ console.log('fff' , pagination);
       </ul>
       <ul className='pagination'>
           <li className='page-item'>
-            <a onClick={ pageNumbers.length != pagination.currentPage ? () => pagination.paginate(pagination.currentPage++): () => pagination.paginate(pagination.currentPage)} href='!#' className='page-link'>
+            <a onClick={ pageNumbers.length != pagination.currentPage ? () => pagination.paginate(pagination.currentPage++): () => pagination.paginate(pagination.currentPage)}  className='page-link'>
               Next
             </a>
           </li>
           <li  className='page-item'>
-            <a onClick={pagination.currentPage > 1 ? () => pagination.paginate(pagination.currentPage--): () => pagination.paginate(pagination.currentPage)} href='!#' className='page-link'>
+            <a onClick={pagination.currentPage > 1 ? () => pagination.paginate(pagination.currentPage--): () => pagination.paginate(pagination.currentPage)}  className='page-link'>
               Previous
             </a>
           </li>
