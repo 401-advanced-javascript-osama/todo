@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 // import ListGroup from 'react-bootstrap/ListGroup';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-
-
-
+import './style.scss';
+import { ToggleContext } from '../context/hideShow';
+import { PaginationContext }  from '../context/pagination-context'
 function TodoList (props){
+
+  const toggleContext = useContext(ToggleContext);
+  const pagination = useContext(PaginationContext);
   return (
 
           <ul>
-            {props.list.map(item => (
-              <Card
-                className={`complete-${item.complete.toString()}`}
+            {pagination.currentItem.map(item => (
+              <Card 
+                className={`complete-${item.complete} complete-${item.complete}-${toggleContext.status}`}
                 key={item._id}
               >
                 <Card.Header>{item.complete}  {item.assignee}</Card.Header>
