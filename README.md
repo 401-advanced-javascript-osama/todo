@@ -9,6 +9,7 @@ connecting our application to an API so that our list will be saved permanently.
 
 ### deployment links
 
+- [netlify](https://determined-mirzakhani-02b097.netlify.app/)
 
 #### How to initialize/run your application
 
