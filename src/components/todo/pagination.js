@@ -1,18 +1,21 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import { PaginationContext }  from '../context/pagination-context'
 
-const Pagination = ({ itemsPerPage, totalitems, paginate , currentPage}) => {
+const Pagination = ({totalitems}) => {
   const pageNumbers = [];
+  const pagination = useContext(PaginationContext);
 
-  for (let i = 1; i <= Math.ceil(totalitems / itemsPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(totalitems / pagination.itemPerPage); i++) {
     pageNumbers.push(i);
   }
+console.log('fff' , pagination);
 
   return (
     <nav>
       <ul className='pagination'>
         {pageNumbers.map(number => (
           <li key={number} className='page-item'>
-            <a onClick={() => paginate(number)} href='!#' className='page-link'>
+            <a onClick={() => pagination.paginate(number)} href='!#' className='page-link'>
               {number}
             </a>
           </li>
@@ -20,12 +23,12 @@ const Pagination = ({ itemsPerPage, totalitems, paginate , currentPage}) => {
       </ul>
       <ul className='pagination'>
           <li className='page-item'>
-            <a onClick={ pageNumbers.length != currentPage ? () => paginate(currentPage++): () => paginate(currentPage)} href='!#' className='page-link'>
+            <a onClick={ pageNumbers.length != pagination.currentPage ? () => pagination.paginate(pagination.currentPage++): () => pagination.paginate(pagination.currentPage)} href='!#' className='page-link'>
               Next
             </a>
           </li>
           <li  className='page-item'>
-            <a onClick={currentPage > 1 ? () => paginate(currentPage--): () => paginate(currentPage)} href='!#' className='page-link'>
+            <a onClick={pagination.currentPage > 1 ? () => pagination.paginate(pagination.currentPage--): () => pagination.paginate(pagination.currentPage)} href='!#' className='page-link'>
               Previous
             </a>
           </li>

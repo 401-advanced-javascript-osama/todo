@@ -9,7 +9,7 @@ class Content extends React.Component {
     return (
       <>
         <button onClick={this.context.toggleStatus}>
-          {this.context.status === 'show' ? 'hide' : 'show'}
+          {this.context.status === 'show' ? 'hide' : 'show'} complete items
         </button>
       </>
     );
