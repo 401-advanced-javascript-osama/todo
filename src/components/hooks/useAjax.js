@@ -17,6 +17,7 @@ const useAjax = () => {
       })
         .then(response => {
             setList([...list, response.data])
+
             })
         .catch(console.error);
     };
@@ -41,11 +42,13 @@ const useAjax = () => {
         })
           .then(savedItem => {
             setList(list.map(listItem => listItem._id === item._id ? savedItem.data : listItem));
+
           })
           .catch(console.error);
       }
     };
     const deleteItem = id => {
+
         let item = list.filter(i => i._id === id)[0] || {};
         if (item._id) {
           let url = `${todoAPI}/${id}`;
@@ -59,14 +62,19 @@ const useAjax = () => {
           })
             .then(() => {
               setList(list.filter(listItem => listItem._id != item._id ));
+
             })
             .catch(console.error);
         }
       };
   
     const _getTodoItems = () => {
+
     axios.get(todoAPI)
-      .then(response => setList(response.data.result))
+    .then(response => {
+      
+      setList(response.data.result)})
+
     };
 
     return [list , _addItem , _toggleComplete , _getTodoItems ,deleteItem]

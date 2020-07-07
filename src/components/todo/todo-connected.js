@@ -4,66 +4,25 @@ import TodoList from './list.js';
 import useAjax from '../hooks/useAjax'
 import './todo.scss';
 import Navbar from 'react-bootstrap/Navbar';
+import Pagination from './pagination.js'
+import ToggleHideShow from './togglehideshow'
 
-const todoAPI = 'http://api-testtt.herokuapp.com/api/v1/todo';
+import ToggleShowProvider from '../context/hideShow';
 
 
 
 const ToDo = () => {
-  const [list , _addItem , _toggleComplete , _getTodoItems , deleteItem] = useAjax()
+  const [list ,_addItem , _toggleComplete , _getTodoItems , deleteItem] = useAjax()
 
-  // const [list, setList] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemPerPage] = useState(3);
 
-  // const _addItem = (item) => {
-  //   item.due = new Date();
-  //   fetch(todoAPI, {
-  //     method: 'post',
-  //     mode: 'cors',
-  //     cache: 'no-cache',
-  //     headers: { 'Content-Type': 'application/json' },
-  //     body: JSON.stringify(item)
-  //   })
-  //     .then(response => response.json())
-  //     .then(savedItem => {
-  //       setList([...list, savedItem])
-  //     })
-  //     .catch(console.error);
-  // };
+  const indexOfLastItem = currentPage * itemPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemPerPage;
+  const currentItem = list.slice(indexOfFirstItem, indexOfLastItem);
 
-  // const _toggleComplete = id => {
-
-  //   let item = list.filter(i => i._id === id)[0] || {};
-
-  //   if (item._id) {
-
-  //     item.complete = !item.complete;
-
-  //     let url = `${todoAPI}/${id}`;
-
-  //     fetch(url, {
-  //       method: 'put',
-  //       mode: 'cors',
-  //       cache: 'no-cache',
-  //       headers: { 'Content-Type': 'application/json' },
-  //       body: JSON.stringify(item)
-  //     })
-  //       .then(response => response.json())
-  //       .then(savedItem => {
-  //         setList(list.map(listItem => listItem._id === item._id ? savedItem : listItem));
-  //       })
-  //       .catch(console.error);
-  //   }
-  // };
-
-  // const _getTodoItems = () => {
-  //   fetch(todoAPI, {
-  //     method: 'get',
-  //     mode: 'cors',
-  //   })
-  //     .then(data => data.json())
-  //     .then(data => setList(data.result))
-  //     .catch(console.error);
-  // };
+  // Change page
+  const paginate = pageNumber => setCurrentPage(pageNumber);
 
   useEffect(_getTodoItems, []);
 
@@ -90,12 +49,21 @@ const ToDo = () => {
         </div>
 
         <div>
+          <ToggleShowProvider>
+          <ToggleHideShow/>
           <TodoList
-            list={list}
+            list={currentItem}
             handleComplete={_toggleComplete}
             handleDelete={deleteItem}
           />
+          </ToggleShowProvider>
         </div>
+        <Pagination
+        currentPage={currentPage}
+        itemsPerPage={itemPerPage}
+        totalitems={list.length}
+        paginate={paginate}
+      />
       </section>
     </>
   );
