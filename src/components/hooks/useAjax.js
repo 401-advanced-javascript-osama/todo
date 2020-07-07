@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
-const todoAPI = 'http://api-testtt.herokuapp.com/api/v1/todo';
+const todoAPI = 'https://api-testtt.herokuapp.com/api/v1/todo';
 
 const useAjax = () => {
     const [list, setList] = useState([]);
