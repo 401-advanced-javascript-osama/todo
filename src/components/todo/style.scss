@@ -19,6 +19,23 @@
     height: 140px;
     margin-bottom: 7%;
     border: 1px solid gray;
+    box-shadow: 0 0  #585858, 0 0  #585858, 0 0 10px #585858;
+    
+}
+
+.status-complete{
+    background-color: red;
+    width: 20%;
+    font-family: none;
+    font-size: 1em;
+    height: 65%;
+}
+.status-pending{
+    background-color: green;
+    width: 20%;
+    font-family: none;
+    font-size: 1em;
+    height: 65%;
 }
 
 .card-text{
