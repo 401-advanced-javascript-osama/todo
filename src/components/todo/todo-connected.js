@@ -11,21 +11,11 @@ import PaginationContext from '../context/pagination-context'
 import ToggleShowProvider from '../context/hideShow';
 import ChangeNumberOfPages from './itemperpage'
 import Header from '../header/header.js'
-// import SortItem from './sortItems'
+
 
 const ToDo = () => {
   const [list ,_addItem , _toggleComplete , _getTodoItems , deleteItem] = useAjax()
 
-  // const [currentPage, setCurrentPage] = useState(1);
-  // const [itemPerPage, setItemPerPage] = useState(3);
-
-  // const indexOfLastItem = currentPage * itemPerPage;
-  // const indexOfFirstItem = indexOfLastItem - itemPerPage;
-  // const currentItem = list.slice(indexOfFirstItem, indexOfLastItem);
-
-  // // Change page
-  // const paginate = pageNumber => setCurrentPage(pageNumber);
-// console.log(list ,'llllllllllll');
 
   useEffect(_getTodoItems, []);
 
