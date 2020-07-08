@@ -1,4 +1,4 @@
-import React ,{useState} from 'react';
+import React ,{useState } from 'react';
 
 export const PaginationContext = React.createContext();
 
@@ -8,16 +8,13 @@ function Pagination (props) {
   
     const indexOfLastItem = currentPage * itemPerPage;
     const indexOfFirstItem = indexOfLastItem - itemPerPage;
-    const list = props.list.sort((a,b)=> a.difficulty > b.difficulty ? 1 : -1);
+    const list = props.list.sort((a,b)=>   a.difficulty > b.difficulty ? 1 : -1 );
     let currentItem = list.slice(indexOfFirstItem, indexOfLastItem);
   
+
     // Change page
     const paginate = pageNumber => setCurrentPage(pageNumber);
     const setItem = numberOfPages => setItemPerPage(numberOfPages);
-    const setcurrentItem = result =>  {
-        console.log('sddddddss' , result);
-        setItemPerPage(itemPerPage)
-        currentItem = result};
 
  const state = {
     currentPage,
@@ -27,7 +24,7 @@ function Pagination (props) {
     currentItem,
     paginate,
     setItem,
-    setcurrentItem
+
  }
  
     return (
