@@ -1,6 +1,6 @@
 import React from 'react';
 import { ToggleContext } from '../context/hideShow';
-
+import Button from 'react-bootstrap/Button';
 class Content extends React.Component {
 
   static contextType = ToggleContext; 
@@ -8,9 +8,12 @@ class Content extends React.Component {
   render() {
     return (
       <>
-        <button onClick={this.context.toggleStatus}>
+       <Button variant="primary" size="lg"  onClick={this.context.toggleStatus} className="hideShow">
+       {this.context.status === 'show' ? 'hide' : 'show'} complete items
+  </Button>{' '}
+        {/* <button onClick={this.context.toggleStatus}>
           {this.context.status === 'show' ? 'hide' : 'show'} complete items
-        </button>
+        </button> */}
       </>
     );
   }

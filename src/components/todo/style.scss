@@ -4,3 +4,29 @@
 .complete-complete-show{
     display: block;
 }
+
+.card-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 40px;
+    padding: 0;
+}
+.badge .badge-success{
+    height: 10%;
+}
+ .card{
+    height: 140px;
+    margin-bottom: 7%;
+    border: 1px solid gray;
+}
+
+.card-text{
+    text-align: center;
+    line-height: 5;
+    font-size: 15px;
+    font-weight: bold;
+}
+.badge-success:hover{
+    cursor: pointer;
+}

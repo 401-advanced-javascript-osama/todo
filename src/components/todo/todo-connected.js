@@ -4,11 +4,13 @@ import TodoList from './list.js';
 import useAjax from '../hooks/useAjax'
 import './todo.scss';
 import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
 import Pagination from './pagination.js'
 import ToggleHideShow from './togglehideshow'
 import PaginationContext from '../context/pagination-context'
 import ToggleShowProvider from '../context/hideShow';
 import ChangeNumberOfPages from './itemperpage'
+import Header from '../header/header.js'
 // import SortItem from './sortItems'
 
 const ToDo = () => {
@@ -23,51 +25,47 @@ const ToDo = () => {
 
   // // Change page
   // const paginate = pageNumber => setCurrentPage(pageNumber);
-console.log(list ,'llllllllllll');
+// console.log(list ,'llllllllllll');
 
   useEffect(_getTodoItems, []);
 
   return (
     <>
-    <Navbar bg="primary" variant="dark">
-      <h1>
-        Home
-      </h1>
-    </Navbar>
-    <Navbar bg="dark" variant="dark">
-
-      <header >
-        <h2>
-          There are {list.filter(item => item.complete === 'pending').length} Items To Complete
+<Header/>
+<Navbar bg="dark" variant="dark" className="navSec">
+    
+    <Nav className="mr-auto" >
+    <h2>
+          To Do List Manager ({list.filter(item => item.complete === 'pending').length}) 
         </h2>
-      </header>
-    </Navbar>
+    </Nav>
+
+  </Navbar>
+
+
 
       <section className="todo">
 
-        <div>
+        <div className="form">
           <TodoForm handleSubmit={_addItem} />
         </div>
         <PaginationContext list={list}>
 
-        <div>
+        <div className="list">
           <ToggleShowProvider list={list}>
           <ToggleHideShow/>
           <ChangeNumberOfPages/>
           
           <TodoList
-            // list={currentItem}
             handleComplete={_toggleComplete}
             handleDelete={deleteItem}
           />
           </ToggleShowProvider>
-        </div>
-        <Pagination
-        // currentPage={currentPage}
-        // itemsPerPage={itemPerPage}
+          <Pagination
         totalitems={list.length}
-        // paginate={paginate}
       />
+        </div>
+
         </PaginationContext>
 
       </section>
