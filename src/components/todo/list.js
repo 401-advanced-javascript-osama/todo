@@ -19,11 +19,13 @@ function TodoList (props){
                 key={item._id} 
               >
                 <Card.Header>
-                <Badge className={`status-${item.complete}`} onClick={() => props.handleComplete(item._id)} variant="success">{item.complete}</Badge>{' '} {item.assignee}
+                <Badge className={`status status-${item.complete}`}  variant="success">{item.complete}</Badge>{' '} {item.assignee}
                 <Button variant="light" className='delete' onClick={() => props.handleDelete(item._id)}>X</Button></Card.Header>
-                <Card.Text >
-                  {item.text}  {item.difficulty }
+                <Card.Text onClick={() => props.handleComplete(item._id)}>
+                  <span>{item.text}</span>
+                  <span>{item.difficulty }</span>
                 </Card.Text>
+                
                 
                
               </Card>
