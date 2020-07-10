@@ -9,6 +9,7 @@ an application designed for creating and organizing a “To Do” list in your b
 
 ### deployment links
 
+[Netlify](https://focused-fermi-790431.netlify.app/)
 
 #### How to initialize/run your application
 
